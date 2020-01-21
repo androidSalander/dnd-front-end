@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-dom'
-import OneCharacterContainer from './OneCharacterContainer'
+import { NavLink } from 'react-router-dom'
 
 class AllCharactersContainer extends Component {
    render() {
@@ -8,23 +7,7 @@ class AllCharactersContainer extends Component {
       return(
         <div>
           <li>
-            <strong>Name:</strong> {character.name} {" "}
-            <strong>Class:</strong> {character.class} {" "}
-            <strong>Race:</strong> {character.race} {" "}
-            <strong>Gender:</strong> {character.gender} {" "}
-            <strong>Size:</strong> {character.size} {" "}
-            <strong>Age:</strong> {character.age} {" "}
-            <strong>Language:</strong> {character.language} {" "}
-            <strong>Speed:</strong> {character.speed} <br/>
-            <strong>Strength:</strong> {character.strength} {" "}
-            <strong>Dexterity:</strong> {character.dexterity} {" "}
-            <strong>Constitution:</strong> {character.constitution} {" "}
-            <strong>Intelligence:</strong> {character.intelligence} {" "}
-            <strong>Wisdom:</strong> {character.wisdom} {" "}
-            <strong>Charisma:</strong> {character.charisma} <br/>
-            <strong>Hit Points:</strong> {character.hit_points} {" "}
-            <strong>Hit Dice:</strong> {character.hit_dice} {" "} <br/>
-            <NavLink to={`/characters/${ index }`}>View</NavLink>
+            <NavLink className='character-view' to={`/characters/${ character.rowid-1 }`}>{character.name}</NavLink>
           </li>
         </div>
       )

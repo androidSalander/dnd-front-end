@@ -1,35 +1,35 @@
 import React, { Component } from 'react'
 
-class CreateCharacterForm extends Component {
+class Update extends Component {
   state = {
-    name: '',
-    class: '',
-    race: '',
-    gender: '',
-    size: '',
-    age: '',
-    language: '',
-    speed: '',
-    strength: '',
-    dexterity: '',
-    constitution: '',
-    intelligence: '',
-    wisdom: '',
-    charisma: '',
-    hit_points: '',
-    hit_dice: ''
+    name: this.props.name,
+    class: this.props.class,
+    race: this.props.race,
+    gender: this.props.gender,
+    size: this.props.size,
+    age: this.props.age,
+    language: this.props.language,
+    speed: this.props.speed,
+    strength: this.props.strength,
+    dexterity: this.props.dexterity,
+    constitution: this.props.constitution,
+    intelligence: this.props.intelligence,
+    wisdom: this.props.wisdom,
+    charisma: this.props.charisma,
+    hit_points: this.props.hit_points,
+    hit_dice: this.props.hit_dice
   }
 
-  handleChange = (event) => {
+  handleUpdate = (event) => {
     this.setState({
       [event.target.name]: event.target.value
     })
   }
 
-  handleSubmit = (event) => {
+  submitUpdate = (event) => {
     event.preventDefault()
-    return fetch('http://localhost:9000/characters', {
-      method: 'POST',
+    return fetch(`http://localhost:9000/characters/${this.props.rowid}`, {
+      method: 'PUT',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
@@ -75,8 +75,7 @@ class CreateCharacterForm extends Component {
         hit_points: '',
         hit_dice: ''
       }, () => {
-        this.props.getAllCharacters()
-        this.props.history.push('/characters')
+        this.props.history.goBack()
       })
     })
     .catch(error => console.log(error))
@@ -85,21 +84,21 @@ class CreateCharacterForm extends Component {
   render() {
     return(
       <div>
-        <h1>Create a Character</h1>
+        <h1>Time to Level Up!</h1>
         <form
           type='text'
-          onSubmit={this.handleSubmit}
+          onSubmit={this.submitUpdate}
         >
           <input
             type='text'
             placeholder='Name'
             name='name'
-            onChange={this.handleChange}
+            onChange={this.handleUpdate}
             value={this.name}
           /> <br/>
           <select
             name='class'
-            onChange={this.handleChange}
+            onChange={this.handleUpdate}
             value={this.class}
           >
             <option selected value='Barbarian'>Barbarian</option>
@@ -117,7 +116,7 @@ class CreateCharacterForm extends Component {
           </select> <br/>
           <select
             name='race'
-            onChange={this.handleChange}
+            onChange={this.handleUpdate}
             value={this.class}
           >
             <option selected value='Dragonborn'>Dragonborn</option>
@@ -134,91 +133,91 @@ class CreateCharacterForm extends Component {
             type='text'
             placeholder='Gender'
             name='gender'
-            onChange={this.handleChange}
+            onChange={this.handleUpdate}
             value={this.gender}
           /> <br/>
           <input
             type='text'
             placeholder='Size'
             name='size'
-            onChange={this.handleChange}
+            onChange={this.handleUpdate}
             value={this.size}
           /> <br/>
           <input
             type='text'
             placeholder='Age'
             name='age'
-            onChange={this.handleChange}
+            onChange={this.handleUpdate}
             value={this.age}
           /> <br/>
           <input
             type='text'
             placeholder='Language'
             name='language'
-            onChange={this.handleChange}
+            onChange={this.handleUpdate}
             value={this.language}
           /> <br/>
           <input
             type='text'
             placeholder='Speed'
             name='speed'
-            onChange={this.handleChange}
+            onChange={this.handleUpdate}
             value={this.speed}
           /> <br/>
           <input
             type='text'
             placeholder='Strength'
             name='strength'
-            onChange={this.handleChange}
+            onChange={this.handleUpdate}
             value={this.strength}
           /> <br/>
           <input
             type='text'
             placeholder='Dexterity'
             name='dexterity'
-            onChange={this.handleChange}
+            onChange={this.handleUpdate}
             value={this.dexterity}
           /> <br/>
           <input
             type='text'
             placeholder='Constitution'
             name='constitution'
-            onChange={this.handleChange}
+            onChange={this.handleUpdate}
             value={this.constitution}
           /> <br/>
           <input
             type='text'
             placeholder='Intelligence'
             name='intelligence'
-            onChange={this.handleChange}
+            onChange={this.handleUpdate}
             value={this.intelligence}
           /> <br/>
           <input
             type='text'
             placeholder='Wisdom'
             name='wisdom'
-            onChange={this.handleChange}
+            onChange={this.handleUpdate}
             value={this.wisdom}
           /> <br/>
           <input
             type='text'
             placeholder='Charisma'
             name='charisma'
-            onChange={this.handleChange}
+            onChange={this.handleUpdate}
             value={this.charisma}
           /> <br/>
           <input
             type='text'
             placeholder='Hit Points'
             name='hit_points'
-            onChange={this.handleChange}
+            onChange={this.handleUpdate}
             value={this.hit_points}
           /> <br/>
           <input
             type='text'
             placeholder='Hit Dice'
             name='hit_dice'
-            onChange={this.handleChange}
+            onChange={this.handleUpdate}
             value={this.hit_dice}
           /> <br/>
           <button type='submit'>Submit</button>
@@ -228,4 +227,4 @@ class CreateCharacterForm extends Component {
   }
 }
 
-export default CreateCharacterForm
+export default Update

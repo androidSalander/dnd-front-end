@@ -5,6 +5,8 @@ import Home from './Home'
 import AllCharactersContainer from './containers/AllCharactersContainer'
 import OneCharacterContainer from './containers/OneCharacterContainer'
 import CreateCharacterForm from './containers/CreateCharacterForm'
+import Delete from './components/Delete'
+import Update from './components/Update'
 
 class App extends Component {
   state = {
@@ -28,14 +30,64 @@ class App extends Component {
         <NavLink className="nav-link" to={'/characters'}>Enter the Dungeon</NavLink>
         <NavLink className="nav-link" to={'/create_character'}>Create a Character</NavLink>
         <Switch>
-          <Route exact path='/' component={ Home } />
-          <Route exact path='/characters' render={ (props) => {
-            return <AllCharactersContainer {...props} characters={ this.state.characters } />
-          } }/>
-          <Route path={'/characters/:id'} render={ (props) => {
-            return <OneCharacterContainer {...props} character={ this.state.characters[props.match.params.id] } />
-          } }/>
-          <Route path='/create_character' getAllCharacters={this.getAllCharacters} component={ CreateCharacterForm } />
+          <Route
+            exact path='/'
+            component={ Home }
+          />
+          <Route
+            exact path='/characters'
+            render={
+              (props) => {
+                return <AllCharactersContainer {...props}
+                  characters={ this.state.characters }
+                />
+              }
+            }
+          />
+          <Route
+            path={'/characters/:id'}
+            render={
+              (props) => {
+                return this.state.characters.length
+                        ? <OneCharacterContainer {...props}
+                            character={ this.state.characters[props.match.params.id] }
+                          />
+                        : <h3>Loading...</h3>
+              }
+            }
+          />
+          <Route
+            path='/create_character'
+            render={
+              (props) => {
+                return <CreateCharacterForm {...props}
+                getAllCharacters={ this.getAllCharacters }
+                />
+              }
+            }
+          />
+          <Route
+            path='/delete'
+            render= {
+              (props) => {
+                return this.state.characters.length
+                        ? <Delete {...props}
+                            character={ this.state.characters[props.match.params.id] }
+                          />
+                        : <h3>Loading...</h3>
+              }
+            }
+          />
+          <Route
+            path='/update'
+            render= {
+              (props) => {
+                return <Update {...props}
+                character={ this.state.characters[props.match.params.id] }
+                />
+              }
+            }
+          />
         </Switch>
       </div>
     )

@@ -1,21 +1,28 @@
 body {
   background-image: url("images/old_paper.jpg");
-  font-family: fantasy;
-  font-size: 20px;
+  font-family: Berkshire Swash;
+  font-size: 35px;
 }
 h1 {
   color: #0e0405;
   font-size: 3rem;
 }
 ul {
-  background-color: rgba(38, 14, 4, 0.8);
-  color: #cea370;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  color: #0e0405;
+}
+button {
+  font-size: 15px;
 }
 .nav-link {
   padding: 10px;
   font-size: 30px;
   color: black;
   text-align: center;
+}
+.character-view {
+  font-family: Walter Turncoat;
+  color: black;
+}
+.character-info {
+  font-family: Walter Turncoat;
 }
