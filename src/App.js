@@ -67,24 +67,29 @@ class App extends Component {
             }
           />
           <Route
-            path='/delete'
+            path={`/delete/:id`}
+            getAllCharacters={ this.getAllCharacters }
             render= {
               (props) => {
+                let character = this.state.characters.find(ele => ele.rowid === parseInt(props.match.params.id))
                 return this.state.characters.length
                         ? <Delete {...props}
-                            character={ this.state.characters[props.match.params.id] }
+                            characterId={ character.rowid }
                           />
                         : <h3>Loading...</h3>
               }
             }
           />
           <Route
-            path='/update'
+            path={`/update/:id`}
             render= {
               (props) => {
-                return <Update {...props}
-                character={ this.state.characters[props.match.params.id] }
-                />
+                let character = this.state.characters.find(ele => ele.rowid === parseInt(props.match.params.id))
+                return this.state.characters.length
+                        ? <Update {...props}
+                            character={ character }
+                          />
+                        : <h3>Loading...</h3>
               }
             }
           />

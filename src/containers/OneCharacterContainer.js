@@ -23,8 +23,8 @@ class OneCharacterContainer extends Component {
           <li>Hit Points: <span className='character-info'>{this.props.character.hit_points}</span></li>
           <li>Hit Dice: <span className='character-info'>{this.props.character.hit_dice}</span></li>
         </ul>
-        <NavLink className='nav-link' to={'/delete'}>Delete</NavLink>
-        <NavLink className='nav-link' to={'/update'}>Update</NavLink>
+        <NavLink className='nav-link' to={`/delete/${this.props.character.rowid}`}>Delete</NavLink>
+        <NavLink className='nav-link' to={`/update/${this.props.character.rowid}`}>Update</NavLink>
       </div>
     )
   }

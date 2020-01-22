@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import DiceRoll from '../components/DiceRoll'
 
 class CreateCharacterForm extends Component {
   state = {
@@ -86,6 +87,7 @@ class CreateCharacterForm extends Component {
     return(
       <div>
         <h1>Create a Character</h1>
+        <DiceRoll />
         <form
           type='text'
           onSubmit={this.handleSubmit}
@@ -96,7 +98,7 @@ class CreateCharacterForm extends Component {
             name='name'
             onChange={this.handleChange}
             value={this.name}
-          /> <br/>
+          />
           <select
             name='class'
             onChange={this.handleChange}
@@ -114,7 +116,7 @@ class CreateCharacterForm extends Component {
             <option value='Sorcerer'>Sorcerer</option>
             <option value='Warlock'>Warlock</option>
             <option value='Wizard'>Wizard</option>
-          </select> <br/>
+          </select>
           <select
             name='race'
             onChange={this.handleChange}
@@ -136,14 +138,14 @@ class CreateCharacterForm extends Component {
             name='gender'
             onChange={this.handleChange}
             value={this.gender}
-          /> <br/>
+          />
           <input
             type='text'
             placeholder='Size'
             name='size'
             onChange={this.handleChange}
             value={this.size}
-          /> <br/>
+          />
           <input
             type='text'
             placeholder='Age'
@@ -157,7 +159,7 @@ class CreateCharacterForm extends Component {
             name='language'
             onChange={this.handleChange}
             value={this.language}
-          /> <br/>
+          />
           <input
             type='text'
             placeholder='Speed'
@@ -171,14 +173,14 @@ class CreateCharacterForm extends Component {
             name='strength'
             onChange={this.handleChange}
             value={this.strength}
-          /> <br/>
+          />
           <input
             type='text'
             placeholder='Dexterity'
             name='dexterity'
             onChange={this.handleChange}
             value={this.dexterity}
-          /> <br/>
+          />
           <input
             type='text'
             placeholder='Constitution'
@@ -192,14 +194,14 @@ class CreateCharacterForm extends Component {
             name='intelligence'
             onChange={this.handleChange}
             value={this.intelligence}
-          /> <br/>
+          />
           <input
             type='text'
             placeholder='Wisdom'
             name='wisdom'
             onChange={this.handleChange}
             value={this.wisdom}
-          /> <br/>
+          />
           <input
             type='text'
             placeholder='Charisma'
@@ -213,7 +215,7 @@ class CreateCharacterForm extends Component {
             name='hit_points'
             onChange={this.handleChange}
             value={this.hit_points}
-          /> <br/>
+          /> 
           <input
             type='text'
             placeholder='Hit Dice'

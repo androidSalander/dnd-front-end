@@ -13,6 +13,10 @@ ul {
 button {
   font-size: 15px;
 }
+input, select {
+  width: 150px;
+  margin: 5px;
+}
 .nav-link {
   padding: 10px;
   font-size: 30px;

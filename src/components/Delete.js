@@ -15,7 +15,7 @@ class Delete extends Component {
     return(
       <div>
         <h1>Are you sure you want to delete?</h1>
-        <button onClick={() => this.handleDelete(this.props.character.rowid)}>DELETE</button>
+        <button onClick={() => this.handleDelete(this.props.characterId)}>DELETE</button>
         <button onClick={() => this.props.history.goBack()}>BACK</button>
       </div>
     )

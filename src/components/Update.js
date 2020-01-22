@@ -2,22 +2,22 @@ import React, { Component } from 'react'
 
 class Update extends Component {
   state = {
-    name: this.props.name,
-    class: this.props.class,
-    race: this.props.race,
-    gender: this.props.gender,
-    size: this.props.size,
-    age: this.props.age,
-    language: this.props.language,
-    speed: this.props.speed,
-    strength: this.props.strength,
-    dexterity: this.props.dexterity,
-    constitution: this.props.constitution,
-    intelligence: this.props.intelligence,
-    wisdom: this.props.wisdom,
-    charisma: this.props.charisma,
-    hit_points: this.props.hit_points,
-    hit_dice: this.props.hit_dice
+    name: this.props.character.name,
+    class: this.props.character.class,
+    race: this.props.character.race,
+    gender: this.props.character.gender,
+    size: this.props.character.size,
+    age: this.props.character.age,
+    language: this.props.character.language,
+    speed: this.props.character.speed,
+    strength: this.props.character.strength,
+    dexterity: this.props.character.dexterity,
+    constitution: this.props.character.constitution,
+    intelligence: this.props.character.intelligence,
+    wisdom: this.props.character.wisdom,
+    charisma: this.props.character.charisma,
+    hit_points: this.props.character.hit_points,
+    hit_dice: this.props.character.hit_dice
   }
 
   handleUpdate = (event) => {
@@ -28,7 +28,7 @@ class Update extends Component {
 
   submitUpdate = (event) => {
     event.preventDefault()
-    return fetch(`http://localhost:9000/characters/${this.props.rowid}`, {
+    return fetch(`http://localhost:9000/characters/${this.props.character.rowid}`, {
       method: 'PUT',
       headers: {
         'Accept': 'application/json',
@@ -91,11 +91,11 @@ class Update extends Component {
         >
           <input
             type='text'
-            placeholder='Name'
+            placeholder={this.props.character.name}
             name='name'
             onChange={this.handleUpdate}
             value={this.name}
-          /> <br/>
+          />
           <select
             name='class'
             onChange={this.handleUpdate}
@@ -113,7 +113,7 @@ class Update extends Component {
             <option value='Sorcerer'>Sorcerer</option>
             <option value='Warlock'>Warlock</option>
             <option value='Wizard'>Wizard</option>
-          </select> <br/>
+          </select>
           <select
             name='race'
             onChange={this.handleUpdate}
@@ -131,91 +131,91 @@ class Update extends Component {
           </select> <br/>
           <input
             type='text'
-            placeholder='Gender'
+            placeholder={this.props.character.gender}
             name='gender'
             onChange={this.handleUpdate}
             value={this.gender}
-          /> <br/>
+          />
           <input
             type='text'
-            placeholder='Size'
+            placeholder={this.props.character.size}
             name='size'
             onChange={this.handleUpdate}
             value={this.size}
-          /> <br/>
+          />
           <input
             type='text'
-            placeholder='Age'
+            placeholder={this.props.character.age}
             name='age'
             onChange={this.handleUpdate}
             value={this.age}
           /> <br/>
           <input
             type='text'
-            placeholder='Language'
+            placeholder={this.props.character.language}
             name='language'
             onChange={this.handleUpdate}
             value={this.language}
-          /> <br/>
+          />
           <input
             type='text'
-            placeholder='Speed'
+            placeholder={this.props.character.speed}
             name='speed'
             onChange={this.handleUpdate}
             value={this.speed}
           /> <br/>
           <input
             type='text'
-            placeholder='Strength'
+            placeholder={this.props.character.strength}
             name='strength'
             onChange={this.handleUpdate}
             value={this.strength}
-          /> <br/>
+          />
           <input
             type='text'
-            placeholder='Dexterity'
+            placeholder={this.props.character.dexterity}
             name='dexterity'
             onChange={this.handleUpdate}
             value={this.dexterity}
-          /> <br/>
+          />
           <input
             type='text'
-            placeholder='Constitution'
+            placeholder={this.props.character.constitution}
             name='constitution'
             onChange={this.handleUpdate}
             value={this.constitution}
           /> <br/>
           <input
             type='text'
-            placeholder='Intelligence'
+            placeholder={this.props.character.intelligence}
             name='intelligence'
             onChange={this.handleUpdate}
             value={this.intelligence}
-          /> <br/>
+          />
           <input
             type='text'
-            placeholder='Wisdom'
+            placeholder={this.props.character.wisdom}
             name='wisdom'
             onChange={this.handleUpdate}
             value={this.wisdom}
-          /> <br/>
+          />
           <input
             type='text'
-            placeholder='Charisma'
+            placeholder={this.props.character.charisma}
             name='charisma'
             onChange={this.handleUpdate}
             value={this.charisma}
           /> <br/>
           <input
             type='text'
-            placeholder='Hit Points'
+            placeholder={this.props.character.hit_points}
             name='hit_points'
             onChange={this.handleUpdate}
             value={this.hit_points}
-          /> <br/>
+          />
           <input
             type='text'
-            placeholder='Hit Dice'
+            placeholder={this.props.character.hit_dice}
             name='hit_dice'
             onChange={this.handleUpdate}
             value={this.hit_dice}
