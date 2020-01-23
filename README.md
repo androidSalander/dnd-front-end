@@ -1,3 +1,11 @@
+# Dungeons & Dragons
+## Character Creator
+
+My final project is a dungeons and dragons character creator. You can build your characters from scratch, view all your characters, and select specific ones to update or delete.
+My ultimate goal is to turn this into a full blown dungeons & dragons site that you can use to easily play with your party in person or online!
+
+# Create React App
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
